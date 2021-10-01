@@ -1,5 +1,3 @@
-import React from "react";
-
 import { LineupComponent } from "./Lineup.Component";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 

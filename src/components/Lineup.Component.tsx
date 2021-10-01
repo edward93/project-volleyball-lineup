@@ -33,7 +33,7 @@ export const LineupComponent = () => {
     deserializePlayers();
   }, [payload]);
   //#endregion
-  
+
   /**
    * Serializes players array object (array -> json string -> base64)
    */
@@ -41,6 +41,8 @@ export const LineupComponent = () => {
     if (players.length > 0) {
       const playersB = btoa(JSON.stringify(players));
       setPayload(playersB);
+      
+      // dynamically update the url
       history.push(`/${playersB}`);
     }
   };
