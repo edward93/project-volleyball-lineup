@@ -23,14 +23,17 @@ export const LineupComponent = () => {
   //#region effects
   useEffect(() => {
     setPayload(urlData);
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     serializePlayers();
+    // eslint-disable-next-line
   }, [players]);
 
   useEffect(() => {
     deserializePlayers();
+    // eslint-disable-next-line
   }, [payload]);
   //#endregion
 
@@ -41,7 +44,7 @@ export const LineupComponent = () => {
     if (players.length > 0) {
       const playersB = btoa(JSON.stringify(players));
       setPayload(playersB);
-      
+
       // dynamically update the url
       history.push(`/${playersB}`);
     }
