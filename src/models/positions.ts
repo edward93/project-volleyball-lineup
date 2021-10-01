@@ -5,11 +5,11 @@ export type position = {
 
 // order is important
 export const positions: position[] = [
-  { id: 2, name: "Right Front" },
-  { id: 3, name: "Middle Front" },
   { id: 4, name: "Left Front" },
-  { id: 6, name: "Middle Back" },
+  { id: 3, name: "Middle Front" },
+  { id: 2, name: "Right Front" },
   { id: 5, name: "Left Back" },
+  { id: 6, name: "Middle Back" },
   { id: 1, name: "Right Back" },
 ];
 
