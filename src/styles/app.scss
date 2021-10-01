@@ -1,0 +1,20 @@
+.pvl-app-container {
+  // padding: 10pt;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+
+  & .pvl-app-header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    text-transform: uppercase;
+    background-color: whitesmoke;
+  }
+
+  & > .pvl-lineup-container {
+    display: flex;
+  }
+}
