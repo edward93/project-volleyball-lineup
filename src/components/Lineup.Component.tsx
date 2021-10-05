@@ -103,18 +103,21 @@ export const LineupComponent = () => {
                 <div className="pvl-front-left-outer-side" />
                 <div className="pvl-back-left-outer-side" />
               </div>
-              <div className="pvl-court-outline">
-                <div className="pvl-court-front-row">
-                  {frontRowPositions.map((p) => (
-                    <PlayerComponent player={players.filter((c) => c.position?.id === p.id)?.[0]} positionNumber={p.id} key={p.id} />
-                  ))}
-                </div>
-                <div className="pvl-court-back-row">
-                  {backRowPositions.map((p) => (
-                    <PlayerComponent player={players.filter((c) => c.position?.id === p.id)?.[0]} positionNumber={p.id} key={p.id} />
-                  ))}
+              <div className="pvl-court-outline-wrapper responsive-box">
+                <div className="pvl-court-outline responsive-box-content">
+                  <div className="pvl-court-front-row">
+                    {frontRowPositions.map((p) => (
+                      <PlayerComponent player={players.filter((c) => c.position?.id === p.id)?.[0]} positionNumber={p.id} key={p.id} />
+                    ))}
+                  </div>
+                  <div className="pvl-court-back-row">
+                    {backRowPositions.map((p) => (
+                      <PlayerComponent player={players.filter((c) => c.position?.id === p.id)?.[0]} positionNumber={p.id} key={p.id} />
+                    ))}
+                  </div>
                 </div>
               </div>
+
               <div className="pvl-court-right-outer-side">
                 <div className="pvl-front-right-outer-side" />
                 <div className="pvl-back-right-outer-side" />
