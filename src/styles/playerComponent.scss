@@ -1,0 +1,36 @@
+@import "./common.scss";
+
+.pvl-volleyball-player {
+  color: white;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  width: 100%;
+  font-size: $player-font-size;
+
+  & .pvl-player-main-body-container {
+    @include responsive-square($player-circle-size, $player-circle-border-thickness);
+
+    & .pvl-player-main-body-content {
+      @include responsive-square-content(-$player-circle-border-thickness);
+
+      @include circle;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: $player-circle-border-thickness solid white;
+    }
+  }
+
+  & > .pvl-player-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -62,38 +62,6 @@
 
           border: $court-border-thickness solid white;
 
-          & .pvl-volleyball-player {
-            color: white;
-            position: relative;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            flex-grow: 1;
-
-            & > .pvl-player-main-body {
-              @include responsive-circle;
-              // width: 50%;
-              // padding-bottom: 50%;
-              // border-radius: 50%;
-
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: $player-font-size;
-
-              border: 0.2em solid white;
-            }
-
-            & > .pvl-player-info {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: $player-font-size;
-            }
-          }
-
           & .pvl-court-front-row {
             @include front-row();
           }
