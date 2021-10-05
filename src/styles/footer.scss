@@ -1,0 +1,18 @@
+.pvl-footer-container {
+  display: flex;
+
+  padding: .3em 1em 1em 1em;
+  background-color: #f5f5f5;
+  // background-color: rgb(77, 77, 77);
+  justify-content: flex-end;
+  // color: white;
+
+  // border-top: .1em solid #bbb;
+  box-shadow: 0px -2px 4px #dfdfdf;
+
+
+  & .pvl-footer-app-info {
+    display: flex;
+    flex-direction: column;
+  }
+}
