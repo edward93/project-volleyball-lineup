@@ -8,7 +8,7 @@ export const PlayerComponent = (props: { player: player | undefined; positionNum
       <div className="pvl-player-main-body-container">
         <div className="pvl-player-main-body-content">{player?.name}</div>
       </div>
-      <div className="pvl-player-info">{player?.role ? `${player.role} - ${positionNumber}` : `${positionNumber}`}</div>
+      <div className="pvl-player-info">{player?.role ? `${player.role?.shortName} - ${positionNumber}` : `${positionNumber}`}</div>
     </div>
   );
 };
