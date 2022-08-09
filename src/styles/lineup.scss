@@ -1,41 +1,21 @@
-$court-border-thickness: .4em;
-
-$court-color-main: #ff8b4d;
-$court-color-secondary: #feb29e;
-$outer-bounds-color: #77cbda;
-
-$court-size: 50em;
-$player-circle-size: 6em;
-
-$player-font-size: 1.4em;
-
-@mixin front-row($lineType: solid) {
-  display: flex;
-  justify-content: space-evenly;
-  height: 33.333%;
-  border-bottom: $court-border-thickness $lineType white;
-}
-
-@mixin back-row {
-  display: flex;
-  justify-content: space-evenly;
-  height: 66.666%;
-}
+@import "./common.scss";
 
 .pvl-lineup-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex-grow: 6;
+  flex-basis: 80vw;
 
   & .pvl-court-outer-bounds-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 
     & .pvl-court-outer-bounds {
       background-color: $outer-bounds-color;
-      padding: 10pt 80pt 140pt 80pt;
+      // padding: 10pt 80pt 140pt 80pt;
+      padding: 2% 4% 8% 4%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -43,7 +23,7 @@ $player-font-size: 1.4em;
       & .pvl-court-net {
         background-color: white;
         border: 2pt solid gray;
-        height: .5em;
+        height: 0.5em;
       }
 
       & .pvl-court-side-wrapper {
@@ -51,7 +31,7 @@ $player-font-size: 1.4em;
         justify-content: center;
 
         & .pvl-court-left-outer-side {
-          width: 140pt;
+          width: 10%;
 
           & .pvl-front-left-outer-side {
             @include front-row(dotted);
@@ -64,7 +44,7 @@ $player-font-size: 1.4em;
         }
 
         & .pvl-court-right-outer-side {
-          width: 140pt;
+          width: 10%;
 
           & .pvl-front-right-outer-side {
             @include front-row(dotted);
@@ -72,7 +52,6 @@ $player-font-size: 1.4em;
 
           & .pvl-back-right-outer-side {
             @include back-row();
-            // border-right: $court-border-thickness dotted white;
           }
         }
 
@@ -82,37 +61,6 @@ $player-font-size: 1.4em;
           flex-direction: column;
 
           border: $court-border-thickness solid white;
-
-          width: $court-size;
-          height: $court-size;
-
-          & .pvl-volleyball-player {
-            color: white;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            & > .pvl-player-main-body {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: $player-font-size;
-
-              width: $player-circle-size;
-              height: $player-circle-size;
-              border-radius: $player-circle-size * 2;
-
-              border: .2em solid white;
-            }
-
-            & > .pvl-player-info {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: $player-font-size;
-            }
-          }
 
           & .pvl-court-front-row {
             @include front-row();
@@ -133,15 +81,20 @@ $player-font-size: 1.4em;
 .pvl-player-form-container {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 
-  padding: .3em 0 0 .6em;
+  padding: 0.3em 0.3em 0 0.6em;
+
+  & h4 {
+    // text-align: right;
+  }
 
   & label {
-    padding-right: .3em;
+    padding-right: 0.3em;
   }
 
   & .pvl-input-wrapper {
-    padding: .3em;
+    padding: 0.3em;
     display: flex;
     justify-content: flex-end;
   }

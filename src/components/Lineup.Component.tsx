@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { player } from "../models/player";
+import { roles } from "../models/roles";
 
 import { backRowPositions, frontRowPositions, position, positions } from "../models/positions";
 import { PlayerComponent } from "./Player.Component";
@@ -60,6 +61,12 @@ export const LineupComponent = () => {
     }
   };
 
+  //#region input changes
+  /**
+   * Add/update player's name at the specified position
+   * @param e event
+   * @param position position
+   */
   const onNameChange = (e: any, position: position) => {
     const name = e.target.value;
 
@@ -69,15 +76,21 @@ export const LineupComponent = () => {
     if (player) {
       player.name = name;
     } else {
-      player = { name, position, role: "" };
+      player = { name, position, role: undefined };
       newPlayers.push(player);
     }
 
     setPlayers(newPlayers);
   };
 
+  /**
+   * Add/update player's role at the specified position
+   * @param e Event
+   * @param position position
+   */
   const onRoleChange = (e: any, position: position) => {
-    const role = e.target.value;
+    const roleId = +e.target.value;
+    const role = roles.filter((c) => c.id === roleId)?.[0];
 
     const newPlayers = [...players];
     let player = newPlayers.filter((c) => c.position?.id === position.id)?.[0];
@@ -91,6 +104,7 @@ export const LineupComponent = () => {
 
     setPlayers(newPlayers);
   };
+  //#endregion
 
   return (
     <>
@@ -103,18 +117,21 @@ export const LineupComponent = () => {
                 <div className="pvl-front-left-outer-side" />
                 <div className="pvl-back-left-outer-side" />
               </div>
-              <div className="pvl-court-outline">
-                <div className="pvl-court-front-row">
-                  {frontRowPositions.map((p) => (
-                    <PlayerComponent player={players.filter((c) => c.position?.id === p.id)?.[0]} positionNumber={p.id} key={p.id} />
-                  ))}
-                </div>
-                <div className="pvl-court-back-row">
-                  {backRowPositions.map((p) => (
-                    <PlayerComponent player={players.filter((c) => c.position?.id === p.id)?.[0]} positionNumber={p.id} key={p.id} />
-                  ))}
+              <div className="pvl-court-outline-wrapper responsive-box">
+                <div className="pvl-court-outline responsive-box-content">
+                  <div className="pvl-court-front-row">
+                    {frontRowPositions.map((p) => (
+                      <PlayerComponent player={players.filter((c) => c.position?.id === p.id)?.[0]} positionNumber={p.id} key={p.id} />
+                    ))}
+                  </div>
+                  <div className="pvl-court-back-row">
+                    {backRowPositions.map((p) => (
+                      <PlayerComponent player={players.filter((c) => c.position?.id === p.id)?.[0]} positionNumber={p.id} key={p.id} />
+                    ))}
+                  </div>
                 </div>
               </div>
+
               <div className="pvl-court-right-outer-side">
                 <div className="pvl-front-right-outer-side" />
                 <div className="pvl-back-right-outer-side" />
@@ -133,7 +150,14 @@ export const LineupComponent = () => {
             </div>
             <div className="pvl-input-wrapper pvl-player-role-wrapper">
               <label htmlFor="">Role</label>
-              <input type="text" onChange={(e: any) => onRoleChange(e, c)} value={players.filter((x) => x.position?.id === c.id)?.[0]?.role} />
+              <select name="role" onChange={(e: any) => onRoleChange(e, c)} value={players.filter((x) => x.position?.id === c.id)?.[0]?.role?.id}>
+                <option></option>
+                {roles.map((x) => (
+                  <option key={x.id} value={x.id}>
+                    {x.name}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
         ))}

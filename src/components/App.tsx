@@ -1,14 +1,15 @@
-import { LineupComponent } from "./Lineup.Component";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import { LineupComponent } from "./Lineup.Component";
+import { HeaderComponent } from "./Header.Component";
+
 import "../styles/app.scss";
+import { FooterComponent } from "./Footer.Component";
 
 function App() {
   return (
     <div className="pvl-app-container">
-      <div className="pvl-app-header">
-        <h1>Volleyball Line Up</h1>
-      </div>
+      <HeaderComponent />
       <div className="pvl-lineup-container">
         <Router>
           <Switch>
@@ -21,6 +22,7 @@ function App() {
           </Switch>
         </Router>
       </div>
+      <FooterComponent />
     </div>
   );
 }

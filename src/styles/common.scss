@@ -1,0 +1,58 @@
+$court-border-thickness: 0.4em;
+
+$court-color-main: #ff8b4d;
+$court-color-secondary: #feb29e;
+$outer-bounds-color: #77cbda;
+
+$player-circle-size: 45%;
+$player-circle-border-thickness: 0.2em;
+$player-font-size: clamp(2vw, 1.5em, .6em);
+
+@mixin front-row($lineType: solid) {
+  display: flex;
+  justify-content: space-evenly;
+  height: 33.333%;
+  border-bottom: $court-border-thickness $lineType white;
+}
+
+@mixin back-row {
+  display: flex;
+  justify-content: space-evenly;
+  height: 66.666%;
+}
+
+// responsive box
+@mixin responsive-square($square-size: 70%, $border-margin: $court-border-thickness) {
+  width: $square-size;
+  position: relative;
+  margin: $border-margin; // to compensate for content's border
+
+  &::after {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+}
+
+@mixin responsive-square-content($border-margin: -$court-border-thickness) {
+  position: absolute;
+  margin: $border-margin; // to match the parent's content
+  width: 100%;
+  height: 100%;
+}
+
+// circle
+@mixin circle {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+}
+
+.responsive-box {
+  @include responsive-square();
+
+  & > .responsive-box-content {
+    @include responsive-square-content();
+  }
+}
